@@ -2,26 +2,143 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
-		#show_btn{width:100%;height:400px;background:pink;cursor:pointer;position:relative}
-		#test_div{width:100%;height:400px;background:#111;cursor:pointer;opacity:0.7;filter:alpha(opacity=70);-moz-opacity:0.5;position:absolute;top:0;left:0}
+		.show_btn{width:100%;height:400px;background:pink;cursor:pointer;position:relative}
+		.cover_div{width:100%;height:500px;background:#111;cursor:pointer;opacity:0.5;filter:alpha(opacity=70);-moz-opacity:0.5;position:absolute;top:0;left:0}
+        .mbox{width: 400px;height: 100px;background: #fff;top:50%;left: 50%;margin-top: -50px;margin-left: -200px;position: absolute;
+			background:-webkit-gradient(linear, 0% 0%, 0% 80%,from(#b8c4cb), to(#f6f6f8));
+			border-radius:12px;
+			box-shadow:0 1px 1px 0;
+		}
+		.mbox .m_left{
+			width:100px;
+			height:100px;
+			float:left;
+			border-right:1px solid #b0bcb8;
+			background:-webkit-gradient(linear,0% 20%,0% 100%,from(#f8fdfd),to(#b3b3b3));
+			border-radius:12px 0 0 12px;
+		}
+		.mbox .m_right{
+			width:299px;
+			height:100px;float:left;
+			background:-webkit-gradient(linear,0% 13%,0% 100%,from(#dedee0),to(#aaaaaa));
+			border-radius:0 12px 12px 0;
+		}
+		.mbox .m_right p{font-size:12px;padding-left:10px;}
+		.p_title{color:#555;}
+		.p_content{color:#888;}
     </style>
+    <link rel="stylesheet" href="animate.min.css"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 </head>
 <body>
 <script>
-function show_div(){
-	var test=document.getElementById('test_div');
-	if(test.style.display=='none'){
-		test.style.display='block';
+    (function(){
+        $.fn.extend({
+            dialog:function(){
+                $("#show").click(function(){
+                    $(this).show();
+                });
+                $("#btn").click(function(){
+                    $(this).hide();
+                });
+                $(".mbox").draggable({
+                    revert: false, 
+                    start:function(){
+                        
+                    }
+                });
+            },
+            show:function(){
+                var target=$(".con");
+                var test=target.children(".cover_div").eq(0);
+                var mbox=target.children(".mbox").eq(0);
+                test.css("width",target.css("width"));
+                test.css("height",target.css("height"));
+                if(test.css("display")=='none'){
+                    target.css("pointer-events","none");
+                    test.css("display","block");
+                    mbox.css("display","block");
+                    $('.mbox').addClass('animated bouncein');
+                }else{
+                    test.css("display","none");
+                    mbox.css("display","none");
+                    $('.mbox').removeClass('animated bouncein');
+                }
+            },
+            hide:function(){
+                var target=$(".con");
+                target.css("pointer-events","auto");
+                var test=target.children(".cover_div").eq(0);
+                var test2=target.children(".mbox").eq(0);
+                test.css("display","none");
+                test2.css("display","none");
+            }
+        });
+    })(jQuery);
+
+    
+    
+/*function show_div(target){
+	var test=target.children(".cover_div").eq(0);
+    var mbox=target.children(".mbox").eq(0);
+    test.css("width",target.css("width"));
+    test.css("height",target.css("height"));
+	if(test.css("display")=='none'){
+        target.css("pointer-events","none");
+		test.css("display","block");
+        mbox.css("display","block");
 	}else{
-		test.style.display='none';
+		test.css("display","none");
+        mbox.css("display","none");
 	}
 	
 }
-</script>
-<div id='show_btn' onclick="show_div()">点击覆盖
-	<div id='test_div' style='display:none;'>这里是测试用的div</div>
-</div>
+function hide_div(target){
+    target.css("pointer-events","auto");
+    var test=target.children(".cover_div").eq(0);
+    var test2=target.children(".mbox").eq(0);
+    test.css("display","none");
+    test2.css("display","none");
+}*/
+$(function(){
+   /* $("#show").click(function(){
+        show_div($(".con"));
+    });
+    $("#btn").click(function(){
+        hide_div($(".con"));
+    });
+    $(".mbox").click(function(){
+        $(this).children("button").eq(0).html("hehe");
+    });
+    $(".mbox").draggable({
+			revert: false, 
+			start:function(){
+                conv=$(this).html();
+            }
+    });
+    alert($(this).add(5,7));*/
+    $(".con").dialog();
+    
+});
+    
+    
 
+
+</script>
+<div class='show_btn con'>点击覆盖
+	<div class='cover_div' style='display:none;'></div>
+	<button id="test">asdad</button>
+	<div class="mbox" style='display:none;pointer-events:auto' draggable="true">
+	   <div class="m_left"></div>
+	   <div class="m_right">
+			<p class="p_title">标题</p>
+			<p class="p_content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+	   </div>
+	</div>
+</div>
+<button id="btn">cancel</button>
+<button id="show">show</button>
 </body>
 
 </html>
