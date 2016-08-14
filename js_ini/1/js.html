@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0}
+			.fir{list-style:none;position:relative;border:1px solid green;width:60px;}
+			ul ul{background:#eee;display:none;border:1px solid red;position:absolute;top:18px;left:-1px;}
+			
+		</style>
+
+	</head>
+<body>
+<!--
+	让一个元素移除在视线之外
+	1.display:none;
+	2.visibility:hidden;
+	3.width/height
+	4.透明度
+	5.left/top
+	6.拿一个白色的div盖住它
+	7.margin:负值
+-->
+<ul class="fir">
+	<li id="list">
+		<a id="link" href="#">微博</a>
+		<ul id="ul2">
+			<li>消息</li>
+			<li>消息</li>
+			<li>@我</li>
+		</ul>
+	</li>
+</ul>
+<script>
+	
+	/*
+		js中如何获取元素
+			1.获取元素通过ID名称
+		js中的事件
+			鼠标时间，键盘事件，系统事件，表单事件
+			鼠标：onclick/onmouseover/onmouseout/onmousedown/onmouseup/onmousemove/...
+		如何添加事件：
+			元素.事件（相当于添加了一个事件）
+			函数：可以理解为命令，做一些事情：function 名字(){
+				... //肯定不会主动执行的！
+			}
+			1.直接调用：名字();
+			2.事件调用：元素.事件 = 函数名(div.onclick = abc;不能带括号)
+
+
+
+			测试:alert(1);警告框；
+			alert("ok"); 字符串
+
+			随时写，随时测试
+	*/
+	var shijian = document.getElementById("list");
+	shijian.onmouseover = show;
+	shijian.onmouseout = hide;
+	function show(){
+		document.getElementById('ul2').style.display = 'block';
+		document.getElementById('link').style.background = 'yellow';
+	}
+	function hide(){
+		document.getElementById('ul2').style.display = 'none';
+		document.getElementById('link').style.background = 'white';
+	}
+</script>
+
+</body>
+</html>
