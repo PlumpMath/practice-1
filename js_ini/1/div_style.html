@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+		#container{background:gray;width:900px;height:500px}
+		#btn1{background:red;color:#fff;border:none}	
+		#box{width:400px;height:200px;background:#fff;float:left;border:10px solid #111;margin-top:30px}
+		#setting{display:none;width:300px;height:200px;float:left;background:#fff;margin-top:40px;margin-left:40px;border:10px solid hsla(0,3%,13%,0.8)}
+		</style>
+
+	</head>
+<body>
+<div id="container">
+	<h2>请为下面div设置样式</h2>
+	<input type="button" id='btn1'  value="点击设置"/>
+	<br /><br />
+	<div id="box"></div>
+	<div id="setting">
+		<span>请选择背景颜色：</span>
+		<input type="button" id="yellow" value="黄色"/>
+		<input type="button" id="red"  value="红色"/>
+		<input type="button" id="blue"  value="蓝色"/>
+		<br /></br/>
+		<span>请选择高度：</span>
+		<input type="button" id="hone" value="100"/>
+		<input type="button" id="htwo"  value="200"/>
+		<input type="button" id="hthree"  value="300"/>
+		<br /></br/>
+		<span>请选择宽度：</span>
+		<input type="button" id="one" value="100"/>
+		<input type="button" id="two"  value="200"/>
+		<input type="button" id="three"  value="300"/>
+		<br /></br/>
+		<input type="button" id="confirm"  value="确定"/>
+		<input type="button" id="cancel"  value="重置"/>
+	</div>
+</div>
+
+<script>
+	var setting = document.getElementById('setting');
+	var btn1 = document.getElementById('btn1');
+	var red = document.getElementById('red');
+	var yellow = document.getElementById('yellow');
+	var blue = document.getElementById('blue');
+	var one = document.getElementById('one');
+	var two = document.getElementById('two');
+	var three = document.getElementById('three');
+	var hone = document.getElementById('hone');
+	var htwo = document.getElementById('htwo');
+	var hthree = document.getElementById('hthree');
+	var box = document.getElementById('box');
+	var confirm = document.getElementById('confirm');
+	var cancel = document.getElementById('cancel');
+	red.onclick = function(){
+		box.style.background='red';
+	}
+	yellow.onclick = function(){
+		box.style.background='yellow';
+	}
+	blue.onclick = function(){
+		box.style.background='blue';
+	}
+	one.onclick = function(){
+		box.style.width='100px';
+	}
+	two.onclick = function(){
+		box.style.width='200px';
+	}
+	three.onclick = function(){
+		box.style.width='300px';
+	}
+	hone.onclick = function(){
+		box.style.height='100px';
+	}
+	htwo.onclick = function(){
+		box.style.height='200px';
+	}
+	hthree.onclick = function(){
+		box.style.height='300px';
+	}
+	confirm.onclick = function(){
+		setting.style.display='none';
+	}
+	cancel.onclick = function(){
+		box.style.background='#fff';
+		box.style.width='400px';
+		box.style.height='200px';
+	}
+	btn1.onclick = function(){
+		setting.style.display='block';
+	}
+</script>
+</body>
+</html>

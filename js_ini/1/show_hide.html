@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			#box{width:400px;height:200px;background:red;display:none}
+			
+		</style>
+
+	</head>
+<body>
+<input type="button" id="btn1" value="显示" />
+<input type="button" id="btn2" value="隐藏" />
+<input type="button" id="btn3" value="显示/隐藏" />
+<div id="box"></div>
+
+
+<script>
+	var btn1 = document.getElementById('btn1');
+	var btn2 = document.getElementById('btn2');
+	var btn3 = document.getElementById('btn3');
+	var box = document.getElementById('box');
+	btn1.onclick=function(){
+		box.style.display='block';
+	}
+	btn2.onclick = function(){
+		box.style.display='none'
+	}
+	btn3.onclick = function(){
+		if(box.style.display=='none'){
+			box.style.display='block';
+		}else{
+			box.style.display='none';
+		}
+	}
+</script>
+</body>
+</html>
