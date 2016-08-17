@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			#box{width:400px;height:580px;margin:0 auto;background:#dfdfdf;}
+			#bottom{width:400px;height:30px;margin:0 auto;background:blue;position:relative}
+			#img{width:20px;height:20px;background:red;position:absolute;bottom:0;left:0px;}
+			#text{width:300px;height:20px;background:yellow;position:absolute;bottom:0;left:25px;border:none}
+			#submit{width:50px;height:20px;background:pink;position:absolute;bottom:0;right:0;border:none;cursor:pointer;}
+		</style>
+
+	</head>
+<body>
+
+<div id="box">
+	
+</div>
+<div id="bottom">
+	<img id = 'img' />
+	<input id='text' />
+	<input id='submit' type='button'></div>
+</div>
+
+<script>
+	var Oimg = document.getElementById('img');
+	var Odiv = document.getElementById('box');
+	var Otext = document.getElementById('text');
+	var Obtn = document.getElementById('submit');
+	var imgUrlArr = ['img/q1.png','img/q2.png'];
+	var num = 0;
+	function url(){
+	Oimg.src=imgUrlArr[num];}
+	url();
+	Oimg.onclick = function(){
+		num++;
+		Oimg.src=imgUrlArr[num];
+		if(num>=imgUrlArr.length-1){
+			num = -1;
+		}
+	}
+
+	Obtn.onclick = function(){
+		console.log(Otext.value);
+		Odiv.innerHTML += '<img src="javascript:Oimg.src;" />'+Otext.value+'<br />';
+		Otext.value = '';
+	}
+</script>
+</body>
+</html>
