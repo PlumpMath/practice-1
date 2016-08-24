@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>slide</title>
+<style type="text/css"> 
+html,body{
+ width:100%;
+ height:100%;
+ margin:0px;
+ border:0px;
+ text-align:center;
+}
+div{
+ margin:auto;
+ overflow:hidden;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript"> 
+function tag(obj){
+ return document.getElementsByTagName(obj)[0];
+}
+window.onload=function(){
+ setTimeout("slideUp();",1000);
+}
+function slideUp(){
+ if(tag("div").offsetHeight>0){
+  if(tag("div").offsetHeight>10){
+   tag("div").style.height=tag("div").offsetHeight-10+"px"
+   setTimeout("slideUp();",20);
+  }else{
+   tag("div").style.display="none";
+   tag("img").src="http://demo.jb51.net/js/2015/js-lm-style-adv-pic-style-codes/images/wall8.jpg";
+   tag("div").style.display="block";
+   slideDown();
+  }
+ }
+}
+function slideDown(){
+ if(tag("div").offsetHeight<80){
+  if(tag("div").offsetHeight<70){
+   tag("div").style.height=tag("div").offsetHeight+10+"px";
+   setTimeout("slideDown();",20);
+  }else{
+   tag("div").style.height="80px";
+  }
+ }
+}
+</script>
+<div><img src="http://demo.jb51.net/js/2015/js-lm-style-adv-pic-style-codes/images/wall8.jpg"></div>
+</body>
+</html>
