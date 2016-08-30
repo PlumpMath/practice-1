@@ -11,10 +11,10 @@
 		<!--css,js-->
 		<style type="text/css">
 			#box{width:400px;height:580px;margin:0 auto;background:#dfdfdf;}
-			#bottom{width:400px;height:30px;margin:0 auto;background:blue;position:relative}
-			#img{width:20px;height:20px;background:red;position:absolute;bottom:0;left:0px;}
-			#text{width:300px;height:20px;background:yellow;position:absolute;bottom:0;left:25px;border:none}
-			#submit{width:50px;height:20px;background:pink;position:absolute;bottom:0;right:0;border:none;cursor:pointer;}
+			#bottom{width:400px;height:30px;margin:0 auto;background:#dfdfdf;padding-bottom:20px;position:relative}
+			#img{width:20px;height:20px;background:#dfdfdf;position:absolute;bottom:10px;left:0px;}
+			#text{width:300px;height:20px;position:absolute;bottom:10px;left:25px;border:none}
+			#submit{width:50px;height:20px;position:absolute;background:pink;bottom:10px;right:0;border:none;cursor:pointer;}
 		</style>
 
 	</head>
@@ -36,20 +36,26 @@
 	var Obtn = document.getElementById('submit');
 	var imgUrlArr = ['img/q1.png','img/q2.png'];
 	var num = 0;
+	var imgurl=imgUrlArr[num];
 	function url(){
 	Oimg.src=imgUrlArr[num];}
 	url();
 	Oimg.onclick = function(){
 		num++;
 		Oimg.src=imgUrlArr[num];
+		imgurl=imgUrlArr[num];
 		if(num>=imgUrlArr.length-1){
 			num = -1;
 		}
 	}
 
 	Obtn.onclick = function(){
+		
 		console.log(Otext.value);
-		Odiv.innerHTML += '<img src="javascript:Oimg.src;" />'+Otext.value+'<br />';
+		if(Otext.value==''){
+			alert('还是说点什么吧');
+		}else
+		Odiv.innerHTML += '<img src="'+imgurl+'" />'+Otext.value+'<br />';
 		Otext.value = '';
 	}
 </script>
