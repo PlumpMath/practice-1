@@ -1,0 +1,12 @@
+*{margin:0;padding:0}
+.all{width:100%;background-color: #d4e6f2}
+.all .logo{width:1190px;height:80px;margin:0 auto;}
+.all .con{width:1190px;height:600px;margin:0 auto;position:relative;background:url("../images/login.png") no-repeat;background-size:cover}
+.all .con .l_con{width:340px;height:406px;position:absolute;top:110px;left:750px;background:#fff;}
+.all .con .l_con .tit{font-size:16px;color:#3c3c3c;font-weight:700;margin:27px}
+.all .con .l_con span{line-height:30px}
+.all .con .l_con input{width:223px;height:33px;border:1px solid #dfdfdf;margin: 13px 76px;outline:0}
+.all .con .l_con a{text-decoration:none;color:#666;font-size:10px;margin: 53px;}
+.all .con .l_con a:hover{color:#c40000}
+.all .con .l_con .login_btn input{width:300px;height:42px;background:#AF0000;margin: 22px;font-size:14px;color:#fff;font-weight:700;outline:0;border:0;cursor:pointer}
+.all .con .l_con .login_btn input:hover{background:#c40000}
