@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .one,.two{
+            width:100px;
+            height:50px;
+            background:skyblue;
+            margin:10px;
+        }
+        .one{
+            /*visibility: hidden;*/
+            /*display:none;*/
+        }
+
+        #adver{width:1000px;height:40px;background:lightpink;
+            position: relative;
+        }
+        #adver a{
+            display: block;
+            width:15px;
+            height:15px;
+            background-color:#111;
+            opacity:0.7;
+            position:absolute;
+            top:0;
+            right: 0;
+        }
+        .demo{
+            background:skyblue;
+            width: 100px;
+            height: 50px;
+            margin: 20px;
+            display: none;
+        }
+
+        #mousePic{
+            padding-top: 360px;
+            width: 360px;
+            border:1px solid #ccc;
+            overflow: hidden;
+            background: url("images/01big.jpg") no-repeat;
+        }
+        #mousePic ul{
+            list-style-type: none;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #mousePic li{
+            float:left;
+        }
+        #text{
+            color: #ccc;
+        }
+        hr{
+            margin: 0 auto;
+        }
+    </style>
+    <script src="js/append.js"></script>
+</head>
+<body>
+<!--js的主要目的就是控制web标准的样式和结构-->
+<div id="demo">
+    <div id="laoda"></div>
+</div>
+<div id="demo">
+    更改长度试试
+</div>
+<button id="btn">更改宽度</button>
+
+<!--visibility和display的区别：visibility隐藏后还占位置，display隐藏后不占位置-->
+<div class="one">visibility</div>
+<div class="two">display</div>
+
+<div id="adver">
+    点击关闭该广告
+    <a href="javascript:;" id="close"></a>
+</div>
+
+<button id="btn1" onclick = fn("demo1")>显示盒子1</button>
+<button id="btn2" onclick = fn("demo2")>显示盒子2</button>
+<button id="btn3" onclick = fn("demo3")>显示盒子3</button>
+<button id="btn4" onclick = fn("demo4")>显示盒子4</button>
+<div id="demo1" class="demo">盒子1</div>
+<div id="demo2" class="demo">盒子2</div>
+<div id="demo3" class="demo">盒子3</div>
+<div id="demo4" class="demo">盒子4</div>
+
+<!--移上去切换图片-->
+<div id="mousePic">
+    <ul>
+        <li id="pic1"><img src="images/01.jpg" alt="图片"/></li>
+        <li id="pic2"><img src="images/02.jpg" alt="图片"/></li>
+        <li id="pic3"><img src="images/03.jpg" alt="图片"/></li>
+        <li id="pic4"><img src="images/04.jpg" alt="图片"/></li>
+        <li id="pic5"><img src="images/05.jpg" alt="图片"/></li>
+    </ul>
+</div>
+<p>input框的获取焦点和失去焦点</p>
+<input type="text" value="请输入..." id="text"/>
+<!--自动获取焦点-->
+<p>自动获取焦点</p>
+<input type="text" id="autoFocus"/>
+<p>鼠标经过自动选择表单</p>
+<input type="text" id="sel"/>
+<p>金字塔</p>
+<ul id="ul">
+
+</ul>
+<p></p>
+<button id="addLi">添加li</button>
+
+<!--slide-->
+<style>
+    .slide{
+        width:360px;
+        height: 360px;
+        margin:100px auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .slideImg ul{list-style: none
+    }
+    .circle{
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        bottom: 10px;
+
+    }
+    .circle span{
+        float: left;
+        width: 18px;
+        height: 18px;
+        background-color: skyblue;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: 10px;
+        line-height: 18px;
+    }
+</style>
+<div class="slide" id="scroll">
+    <div class="slideImg">
+        <ul id="aImg">
+            <li><img src="images/01big.jpg" alt=""/></li>
+            <li><img src="images/02big.jpg" alt=""/></li>
+            <li><img src="images/03big.jpg" alt=""/></li>
+        </ul>
+    </div>
+<!--    <div class="circle">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>-->
+</div>
+<script>
+    var scroll = document.getElementById("scroll");
+    var circle = document.createElement("div");
+    var aImg = document.getElementById("aImg");
+    circle.setAttribute("class","circle");
+    scroll.appendChild(circle);
+    var numImg = aImg.children;
+    var imgLen = numImg.length;
+
+    for(var n = 0;n<imgLen;n++){
+        var aSpan = document.createElement("span");
+        aSpan.innerHTML = n+1;
+        circle.appendChild(aSpan);
+    }
+</script>
+<div id="time">
+
+</div>
+<script>
+    var date = new Date();
+    console.log(date);
+    var endtime = new Date("2016/11/13");
+    console.log(endtime);
+    var time = document.getElementById("time");
+    var deadline = new Date("2016/10/8");
+    setInterval(clock,1000);
+    function clock(){
+        var nowTime = new Date();
+//        console.log(nowTime.getTime());
+        var second = parseInt((deadline.getTime()-nowTime.getTime())/1000);
+        //console.log(second);
+        var d = parseInt(second/3600/24);
+        var h = parseInt(second/3600%24);
+        var m = parseInt(second/60%60);
+        var s = parseInt(second%60);
+        time.innerHTML = d+"天"+h+"小时"+m+"分钟"+s+"秒";
+    }
+</script>
+<script>
+/*    /!*金字塔*!/
+    for(var i = 1;i<=30;i++){
+        document.write("<hr width= "+i+"%/>");
+    }*/
+//     动态添加li
+    var ul = document.getElementById("ul");
+    var addLi = document.getElementById("addLi");
+    addLi.onclick = function(){
+        var newLi = document.createElement("li");
+        newLi.innerHTML = "文字";
+        ul.appendChild(newLi);
+    }
+
+//    自动获取焦点
+    var autoFcus = $("autoFocus");
+    autoFcus.focus();
+/*鼠标经过自动获取表单*/
+    var sel = $("sel");
+    sel.onmouseover = function(){
+        this.select();
+    }
+    /*input框的焦点得到和失去*/
+    var txt = $("text");
+    txt.onfocus = function(){
+        if(txt.value=="请输入..."){
+            txt.value="";
+            txt.style.color = "#333";
+        }
+    }
+    txt.onblur = function(){
+        if(txt.value==""){
+            txt.value="请输入..."
+            txt.style.color="#ccc";
+        }
+    }
+      /*类似jq的写法*/
+      function $(id){
+          return document.getElementById(id);
+      }
+      $("demo4").style.backgroundColor = "red";
+//    鼠标样式展示
+    var bigImg = document.getElementById("mousePic");
+    function change(small,bg){
+        var smallImg = document.getElementById(small);
+        smallImg.onmouseover=function () {
+            bigImg.style.backgroundImage = bg;
+        }
+    };
+    change("pic1","url(images/01big.jpg)");
+    change("pic2","url(images/02big.jpg)");
+    change("pic3","url(images/03big.jpg)");
+    change("pic4","url(images/04big.jpg)");
+    change("pic5","url(images/05big.jpg)");
+
+    /*
+    window.alert("hey!");
+    alert("Nothing wrong with being tired!");
+    console.log("You Just have NO choice");
+    console.warn("The only thing you can do just keep going");
+    console.error("You should not  try to...");
+    document.write("Document cant be missed");
+    */
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("demo");
+    box.style.width="200px";
+    box.style.height="200px";
+    box.style.backgroundColor="pink";
+
+    btn.onclick = function(){
+        box.style.width = "300px";
+    };
+
+    /*var num = 10;
+    function fn(){
+        console.log(num);
+        result = 20;
+    }
+    fn();
+    console.log(result);*/
+
+    var close = document.getElementById("close");
+    var adver = document.getElementById("adver");
+    close.onclick = function(){
+        adver.style.display = "none";
+    };
+
+   /* var fun1 = function(){
+        alert("函数直接量声明");
+    }
+    fun1();
+
+    var fun2 = new Function("var a = 10; var b = 15; alert(a+b)");
+    fun2();*/
+
+//    传参
+    function fn(obj){
+        var obj = document.getElementById(obj);
+        obj.style.display="block";
+    }
+
+</script>
+</body>
+</html>

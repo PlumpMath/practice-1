@@ -1,0 +1,91 @@
+父节点： parentNode
+
+兄弟节点：
+
+	nextElementSibling   正常的浏览器
+
+	nextSibling     只有IE678可以识别
+
+兄弟节点浏览器兼容写法：
+
+	var test = one.nextElementSibling || one.nextSibling	注意：正常浏览器要写在前面
+
+孩子节点：
+	
+	1.
+	
+	/*比较少用，换行也会算在孩子里*/
+	
+	firstChild  第一个孩子 IE678
+
+	firstElementChild   第一个孩子  正常浏览器
+	
+	lastChild	最后一个孩子   IE678
+
+	lastElementChild	最后一个孩子  正常浏览器
+
+	2.（正式的js中推出的）
+
+	childNodes 选出全部的孩子,但是火狐和谷歌等高版本都会把换行看成子节点，所以使用（nodeType==1）,表示的是元素节点
+
+	nodeType == 2  属性节点
+
+	nodeType == 3	文本节点
+
+	但是一般不怎么用
+
+	3.（没有兼容性的问题，平时就用这个）
+
+	children 重要，选取所有的孩子（只元素节点，不会把空格换行等包含进来）
+
+	join:把数组转化成字符串
+
+	split:把字符串分割成数组
+
+	pop:删除最后一个数组的元素
+
+	shift:删除第一个数组的元素
+
+	push:最后为数组添加元素
+
+	unshift:在头部为数组添加元素
+
+
+
+DOM的节点操作：
+
+新建节点，插入节点，删除节点，克隆节点等等
+
+创建节点：
+
+	var div = document.creatElement("li");
+	//生成一个新的li标签。
+插入节点：
+
+	1.appendChild(); 添加孩子节点。
+	放到盒子的最后面。
+	2.insertBefore(插入的节点，参照节点);
+	两个参数
+	如果第二个参数为null ,则默认这新生成的盒子放在最后面。
+	3.removeChild();移除孩子节点
+	4.克隆节点：cloneNode();括号里面也可以跟参数，如果里面是true，深层复制，除了复制本盒子，还复制子节点。
+	如果为false，浅层复制本节点，不复制子节点。克隆完以后一定要appendChild();
+
+
+获取节点属性：
+
+getAttribute();获取属性，可以得到某些元素的某些属性。
+
+getAttribute("id");
+
+getAttribute("class");
+
+设置节点属性：
+
+setAttribute("class","className");
+
+删除属性：
+
+removeAttribute();
+
+

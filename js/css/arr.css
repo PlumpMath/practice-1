@@ -1,0 +1,29 @@
+.change{
+    background: skyblue;
+    color: #fff;
+}
+.tab div{
+    width: 110px;
+    height: 50px;
+    background-color: pink;
+    display: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}
+.tab .show{
+    display: block;
+}
+button{
+    outline: none;
+    border: 0;
+    background-color: #cccccc;
+    color: #fff;
+    border-radius: 4px;
+}
+.active{
+    background-color: skyblue;
+    color: #fff;
+}
