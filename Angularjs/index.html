@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--<div data-ng-app="" data-ng-init="age='22'">
+        姓名：<input type="text" ng-model="name"/>
+        <h1>hello {{name}}</h1>
+        <p>年龄为：<span data-ng-bind="age"></span></p>
+        <p>生日：{{7+0.19}}</p>
+    </div>-->
+   <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <p>firstName:<input type="text" ng-model="firstName"/></p>
+        <p>lastName:<input type="text" ng-model="lastName"/></p>
+
+        <h1>name: {{firstName+" "+lastName}}</h1>
+    </div>-->
+
+    <!--<div ng-app="" ng-init="person={lastName:'Shieh'}">
+        <h2>{{person.lastName}}</h2>
+        <h2 ng-bind="person.lastName"></h2>
+    </div>-->
+
+    <!--<p>数据的同步变化</p>
+    <div ng-app="" ng-init="quality=1;price=7">
+        quality：<input type="number" ng-model=quality min=0 /> <br/>
+        price：<input type="number" ng-model=price min=0 /> <br/>
+        <h3>All Price: $ {{quality*price}}</h3>
+    </div>-->
+
+    <p>ng-repeat实现循环</p>
+    <div ng-app="" ng-init="name=[
+        {name:'Amy',country:'China'},
+        {name:'Tom',country:'American'}
+    ]">
+        <ul>
+            <li ng-repeat="x in name">
+                {{x.name+" come from "+x.country}}
+            </li>
+        </ul>
+    </div>
+
+
+
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<!--<script src="js/main.js"></script>-->
+</html>

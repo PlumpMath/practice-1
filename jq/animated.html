@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+		<link href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+
+		</style>
+
+	</head>
+<body>
+
+
+<script>
+	$(document).ready(function(){
+		$("#btn1").mouseover(function(){
+			$(this).addClass("animated fadeInLeft");
+		})
+		$("#btn1").mouseout(function(){
+			$(this).removeClass("animated fadeInLeft");
+		})
+		$("#btn2").mouseover(function(){
+			$(this).addClass("animated shake");
+		})
+		$("#btn2").mouseout(function(){
+			$(this).removeClass("animated shake");
+		})
+		$("#btn3").mouseover(function(){
+			$(this).addClass("animated bounce");
+		})
+		$("#btn3").mouseout(function(){
+			$(this).removeClass("animated bounce");
+		})
+		$("#btn4").mouseover(function(){
+			$(this).addClass("animated pulse");
+		})
+		$("#btn4").mouseout(function(){
+			$(this).removeClass("animated pulse");
+		})
+		$("#btn5").mouseover(function(){
+			$(this).addClass("animated flash");
+		})
+		$("#btn5").mouseout(function(){
+			$(this).removeClass("animated flash");
+		})
+		$("#con").click(function(){
+			$(this).addClass("animated hinge");
+		})
+	});
+</script>
+
+<!-- Only change code above this line. -->
+
+<div id='con' class='container fluid'>
+	<h1 class='text-info'>Everything you touch surely dies</h1>
+	<div class="row">
+		<div class='col-xs-3'>
+			<button id='btn1' class='btn btn-default'>test1</button>
+		</div>
+		<div class='col-xs-3'>
+			<button id='btn2' class='btn btn-default'>test2</button>
+		</div>
+		<div class='col-xs-2'>
+			<button id='btn3' class='btn btn-default'>test3</button>
+		</div>
+		<div class='col-xs-2'>
+			<button id='btn4' class='btn btn-default'>test4</button>
+		</div>
+		<div class='col-xs-2'>
+			<button id='btn5' class='btn btn-default'>test5</button>
+		</div>
+
+	</div>
+</div>
+
+</html>
