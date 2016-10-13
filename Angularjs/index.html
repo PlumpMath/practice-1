@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
     <!--<div data-ng-app="" data-ng-init="age='22'">
@@ -30,7 +31,7 @@
         <h3>All Price: $ {{quality*price}}</h3>
     </div>-->
 
-    <p>ng-repeat实现循环</p>
+<!--    <p>ng-repeat实现循环</p>
     <div ng-app="" ng-init="name=[
         {name:'Amy',country:'China'},
         {name:'Tom',country:'American'}
@@ -40,11 +41,23 @@
                 {{x.name+" come from "+x.country}}
             </li>
         </ul>
-    </div>
+    </div>-->
 
+<p>创建自定义的指令</p>
+
+<div ng-app="myApp">
+    <new-Tag></new-Tag>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.directive("newTag",function(){
+            return {
+                template:"<h1>自定义指令！</h1>"
+            }
+        })
+    </script>
+</div>
 
 
 </body>
-<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <!--<script src="js/main.js"></script>-->
 </html>
