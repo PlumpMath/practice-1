@@ -31,32 +31,98 @@
         <h3>All Price: $ {{quality*price}}</h3>
     </div>-->
 
-<!--    <p>ng-repeat实现循环</p>
-    <div ng-app="" ng-init="name=[
-        {name:'Amy',country:'China'},
-        {name:'Tom',country:'American'}
-    ]">
-        <ul>
-            <li ng-repeat="x in name">
-                {{x.name+" come from "+x.country}}
-            </li>
-        </ul>
+    <!--    <p>ng-repeat实现循环</p>
+        <div ng-app="" ng-init="name=[
+            {name:'Amy',country:'China'},
+            {name:'Tom',country:'American'}
+        ]">
+            <ul>
+                <li ng-repeat="x in name">
+                    {{x.name+" come from "+x.country}}
+                </li>
+            </ul>
+        </div>-->
+
+    <!--<p>创建自定义的指令</p>-->
+
+    <!--<div ng-app="myApp">
+        <new-Tag></new-Tag>
+        <div new-tag></div>
+
     </div>-->
 
-<p>创建自定义的指令</p>
+    <!--<form ng-app="" name="myForm">
+        Email:
+        <input type="email" name="myEmail" ng-model="text"/>
+        <span ng-show="myForm.myEmail.$error.email">邮箱格式有误</span>
+    </form>
+    -->
 
-<div ng-app="myApp">
-    <new-Tag></new-Tag>
+    <!--<p>CSS类</p>
+    <style>
+        
+        input.ng-valid{
+            background-color: deepskyblue;
+        }
+    </style>
+
+    <form name="myForm" ng-app="">
+        name: <input name="myName" ng-model="text" required/>
+    </form>-->
+
+    <!--<p>Scope概述</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="songName"/>
+        <h1>{{songName}}</h1>
+    </div>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.songName = "highway Don't care";
+        });
+    </script>-->
+    <p>控制器也可以有方法</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="firstName"/><br/>
+        <input type="text" ng-model="lastName"/><br/><br/>
+        <input type="number" min="0" ng-model="quality"/><br/>
+        <input type="number" min="0" ng-model="price"/><br/>
+
+        <h1>{{fullName()}}</h1>
+        <h2>{{firstName | uppercase}}</h2>
+        <h2>{{lastName | lowercase}}</h2>
+        <h3>{{quality*price | currency}}</h3>
+        输入过滤：(过滤器)
+        <p>
+            <input type="text" ng-model = "test"/>
+        </p>
+        <ul>
+            <li ng-repeat = " x in names | orderBy :'country'">
+                {{x.name+" "+x.country}}
+            </li>
+        </ul>
+        <ul>
+            <li ng-repeat = " x in names | filter :test | orderBy:'country'">
+                {{x.name+" "+x.country}}
+            </li>
+        </ul>
+    </div>
     <script>
         var app = angular.module("myApp",[]);
-        app.directive("newTag",function(){
-            return {
-                template:"<h1>自定义指令！</h1>"
+        app.controller("myCtrl",function($scope){
+            $scope.firstName = "Amy";
+            $scope.lastName = "Shieh";
+            $scope.quality= 5;
+            $scope.price = 1000;
+            $scope.names = [
+                {name:'amy',country:'China'},
+                {name:'Tom',country:'American'}
+            ];
+            $scope.fullName = function(){
+                return $scope.firstName+" "+$scope.lastName;
             }
         })
     </script>
-</div>
-
 
 </body>
 <!--<script src="js/main.js"></script>-->
