@@ -6,8 +6,9 @@ var httpApp = angular.module('httpApp',[]);
 app.controller('myCtrl',function($scope,$location){
     $scope.myUrl = $location.absUrl();
 });
+/*
 httpApp.controller('httpCtrl',function($scope,$http){
     $http.get("welcome.html").then(function(response){
         $scope.myWelcome = response.data;
     });
-});
+});*/

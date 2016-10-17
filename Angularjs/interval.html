@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>interval</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+   <div ng-app="myApp" ng-controller="myCtrl">
+       <p>
+           {{theTime}}
+       </p>
+   </div>
+   <script>
+       var app = angular.module("myApp",[]);
+       app.controller("myCtrl",function($scope,$interval){
+           $scope.theTime = new Date().toLocaleTimeString();
+           $interval(function(){
+               $scope.theTime = new Date().toLocaleTimeString();
+           },1000);
+       });
+   </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>timeout</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h2 ng-model="myHeader">
+            {{myHeader}}
+        </h2>
+    </div>
+    <script>
+        /*var app = angular.module('myApp',[]);
+         app.controller('myCtrl',function($scope,$timeout){
+         $scope.myHeader = "hello Amy!";
+         $timeout(function(){
+         $scope.myHeader = "How are you today?"
+         },2000)
+         })*/
+        var app = angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope,$timeout){
+            $scope.myHeader = "Hello Everyone!";
+            $timeout(function(){
+                $scope.myHeader = "The weather is great today!";
+            },2000);
+        });
+    </script>
+</body>
+</html>
