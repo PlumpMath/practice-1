@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>formCheck</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <h1>check form</h1>
+    <p>$dirty: there have record in form</p>
+    <p>$valid: the content you filled is right</p>
+    <p>$invalid:the content you filled is wrong</p>
+    <p>$pristine:there is no content in recode</p>
+    <form ng-app="myApp" ng-controller="formCtrl" name="myForm" novalidate>
+        <p>User：<br/>
+            <input type="text" name="user" ng-model="user" required/>
+            <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">
+                    Please input user name!
+                </span>
+            </span>
+        </p>
+
+        <p>Email：<br/>
+            <input type="email" name="email" ng-model="email" required/>
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">The Email is necessary!</span>
+                <span ng-show="myForm.email.$error.email">The Email is wrong!</span>
+            </span>
+        </p>
+
+        <p>
+            <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.$invalid"/>
+        </p>
+    </form>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("formCtrl",function($scope){
+            $scope.user = "Amy Shieh";
+            $scope.email="amyqing719@gmail.com"
+        });
+    </script>
+</body>
+</html>

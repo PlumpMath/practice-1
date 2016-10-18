@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular API</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <p>Angular API:</p>
+    <p>compare</p>
+    <p>迭代对象</p>
+    <p>transfer/change</p>
+    <p>angular.lowercase()</p>
+    <p>angular.uppercase()</p>
+    <p>angular.isString():if（String）,return:true;</p>
+    <p>angular.isNumber():if(number),return:true;</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{x1}}</p>
+        <p>{{x2}}</p>
+        <p>{{x3}}</p>
+        <p>{{x4}}</p>
+        <p>{{x5}}</p>
+        <p>{{x6}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope){
+            $scope.x1 = "Amy";
+            $scope.x2 = angular.lowercase($scope.x1);
+            $scope.x3 = angular.uppercase($scope.x2);
+            $scope.x4 = angular.isString($scope.x2);
+            $scope.x5 = angular.isNumber($scope.x2);
+            $scope.x6 = angular.isNumber(12);
+        });
+    </script>
+</body>
+</html>

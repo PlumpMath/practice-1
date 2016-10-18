@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>form</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng--controller="formCtrl">
+        <!--novaliddate属性在应用中不是必须的，但是需要在angularjs表单中使用，用于重写标准的html5验证-->
+        <form novalidate>
+            First Name: <br/>
+            <input type="text" ng-model="user.firstName"/> <br/>
+            Last Name: <br/>
+            <input type="text" ng-model="user.lastName"/><br/>
+            <br/>
+            <br/>
+            <button ng-click="reset()">reset</button>
+        </form>
+        <p>form = {{user}}</p>
+        <p>master = {{master}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("formCtrl",function($scope){
+            $scope.master = {firstName:"Amy",lastName:"Shieh"};
+            $scope.reset = function(){
+                $scope.user = angular.copy($scope.master);
+            };
+            /*$scope.reset();*/
+        });
+    </script>
+</body>
+</html>

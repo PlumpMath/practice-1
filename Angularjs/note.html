@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Note</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h2>My note</h2>
+        <textarea ng-model="message" id="" cols="30" rows="10"></textarea>
+        <p>
+            <button ng-click="save()">Save</button>
+            <button ng-click="clear()">Clear</button>
+        </p>
+        <p>Number of characters left:  <span ng-bind="left()"></span></p>
+        <script>
+            var app = angular.module("myApp",[]);
+            app.controller("myCtrl",function($scope){
+                $scope.message = "";
+                $scope.left = function(){
+                    return 100-$scope.message.length;
+                };
+                $scope.clear = function(){
+                    $scope.message="";
+                }
+                $scope.save = function(){
+                    alert("Note has been saved");
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
