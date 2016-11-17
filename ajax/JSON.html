@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">button</button>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+        var xmlTest;
+        if(window.XMLHttpRequest){
+            xmlTest = new XMLHttpRequest();
+        }else{
+            xmlTest = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        xmlTest.onreadystatechange = function(){
+            if(xmlTest.readyState==4 && xmlTest.status==200){
+                alert(JSON.parse(xmlTest.responseText));
+            }
+        }
+        xmlTest.open('get','data.txt',true);
+        xmlTest.send();
+    }
+
+
+//    alert(JSON);
+    var arr = [1,2,3];
+
+</script>
+</body>
+</html>
