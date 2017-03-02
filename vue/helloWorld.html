@@ -1,23 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>hello world</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
+    <!--hello Vue-->
     <div id="vueFirst">
         <p>
             {{message}}
         </p>
     </div>
+
+    <!--hover-->
+    <div id="app">
+        <span v-bind:title = "message">
+            hover here and see the difference
+        </span>
+    </div>
+
+    <!--display-->
+    <div id="display">
+        <p v-if="seen">
+            You can see me now!
+        </p>
+    </div>
+
+    <!--for-->
+    <div id="forCic">
+        <ul>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
+
+    <!--reverse-->
+    <div id="reverse">
+        <p>{{message}}</p>
+        <button v-on:click = "reverseMessage">
+            reverse Message
+        </button>
+    </div>
+
+    <!--bind-->
+    <div id="bind">
+        <p>{{message}}</p>
+        <input v-model="message" type="text">
+    </div>
     <script>
-        new Vue({
+//        hello Vue
+        var vueFirst = new Vue({
             el:'#vueFirst',
             data:{
                 message:'hello vue js'
             }
-        })
+        });
+
+//        hover
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:new Date()
+            }
+        });
+
+//        display
+        var display = new Vue({
+            el:"#display",
+            data:{
+                seen:true
+            }
+        });
+
+//        for
+        var forCic = new Vue({
+            el:"#forCic",
+            data:{
+                todos:[
+                    {text:'Learn javascript'},
+                    {text:'learn Vue'},
+                    {text:'amy is King'}
+                ]
+            }
+        });
+
+//        reverse Message
+        var reverse = new Vue({
+            el:"#reverse",
+            data:{
+                message:"hello reverse.js"
+            },
+            methods:{
+                reverseMessage:function(){
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        });
+
+//        bind
+        var bind = new Vue({
+            el:"#bind",
+            data:{
+                message:"Try your best"
+            }
+        });
     </script>
 </body>
 </html>
